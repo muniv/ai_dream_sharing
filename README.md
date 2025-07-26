@@ -1,8 +1,10 @@
 # 미래로부터 온 포토카드 메이커
 
-20년 뒤의 나를 그려 특별한 포토카드를 만들어보는 웹 애플리케이션입니다. 업로드한 사진과 메시지, 타임라인을 실시간으로 미리 보고 뒷면 배경색과 타이틀 글꼴 크기를 빠르게 조정할 수 있습니다.
+20년 뒤의 나를 그려 특별한 포토카드를 만들어보는 웹 애플리케이션입니다. 업로드한 사진과 메시지, 타임라인을 실시간으로 미리 보고 뒷면 배경색과 타이틀 글꼴 크기를 빠르게 조정할 수 있습니다.  
+청소년 AI 교육을 목적으로 제작되었습니다.  
 
 <img width="977" height="700" alt="Image" src="https://github.com/user-attachments/assets/66adc948-6349-4f06-9924-e8e0d5e48f47" />
+<img width="930" height="721" alt="Image" src="https://github.com/user-attachments/assets/72cb0b5c-d33e-4edc-b90b-1f80be170f08" />
 
 ## 주요 기능
 
