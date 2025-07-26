@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포토카드 메이커</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>미래로부터 온 포토카드 메이커</h1>
+            <p>20년 뒤의 내가 담긴 포토카드를 만들어보세요</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="photo-upload">사진 업로드</label>
+                    <input type="file" id="photo-upload" accept="image/*">
+                    <div class="upload-preview" id="upload-preview">
+                        <span>사진을 선택해주세요</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-title">타이틀(20년 뒤 꿈, 이름)</label>
+                    <input type="text" id="card-title" placeholder="예시: 사랑을 전하는 인공지능 전문가, 박무니">
+                    <div class="size-control">
+                        <label>타이틀 크기</label>
+                        <div class="title-size-options">
+                            <input type="radio" id="title-small" name="title-size" value="small">
+                            <label for="title-small">작게</label>
+                            <input type="radio" id="title-medium" name="title-size" value="medium" checked>
+                            <label for="title-medium">중간</label>
+                            <input type="radio" id="title-large" name="title-size" value="large">
+                            <label for="title-large">크게</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-message">핵심 메시지</label>
+                    <textarea id="card-message" placeholder="예시: 모두가 AI를 통해 행복해지는 세상을 만들고 싶어요" rows="3"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="card-timeline">타임라인</label>
+                    <textarea id="card-timeline" placeholder="예시:
+2025 🎓 박사졸업 — AI 윤리 연구 시작
+2035 📚 베스트셀러 — 'AI 휴머니티' 출간
+2045 🌍 UN 기조연설 — AI·인류 공존 비전 제시" rows="6"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="back-color">뒷면 배경색</label>
+                    <div class="color-options">
+                        <input type="radio" id="color1" name="back-color" value="gradient1" checked>
+                        <label for="color1" class="color-option gradient1"></label>
+                        
+                        <input type="radio" id="color2" name="back-color" value="gradient2">
+                        <label for="color2" class="color-option gradient2"></label>
+                        
+                        <input type="radio" id="color3" name="back-color" value="gradient3">
+                        <label for="color3" class="color-option gradient3"></label>
+                        
+                        <input type="radio" id="color4" name="back-color" value="gradient4">
+                        <label for="color4" class="color-option gradient4"></label>
+                        
+                        <input type="radio" id="color5" name="back-color" value="gradient5">
+                        <label for="color5" class="color-option gradient5"></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Card Preview Section -->
+            <div class="preview-section">
+                <div class="card-container">
+                    <div class="photo-card" id="photo-card">
+                        <!-- Front of the card -->
+                        <div class="card-front">
+                            <div class="card-image" id="card-image">
+                                <span class="placeholder-text">사진이 여기에 표시됩니다</span>
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title-display" id="card-title-display">타이틀</h3>
+                                <p class="card-date-display" id="card-date-display">2045.08.06</p>
+                            </div>
+                        </div>
+
+                        <!-- Back of the card -->
+                        <div class="card-back">
+                            <div class="card-content">
+                                <div class="message-section">
+                                    <h4>메시지</h4>
+                                    <p class="card-message-display" id="card-message-display">메시지가 여기에 표시됩니다</p>
+                                </div>
+                                <div class="timeline-section">
+                                    <h4>타임라인</h4>
+                                    <div class="card-timeline-display" id="card-timeline-display">타임라인이 여기에 표시됩니다</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-controls">
+                    <button id="flip-card" class="btn-secondary">카드 뒤집기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

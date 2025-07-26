@@ -1,0 +1,442 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Input Section */
+.input-section {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.upload-preview {
+    width: 100%;
+    height: 120px;
+    border: 2px dashed #e1e5e9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    transition: border-color 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.upload-preview.has-image {
+    border: 2px solid #667eea;
+}
+
+.upload-preview span {
+    color: #999;
+    font-size: 14px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #333;
+    border: 2px solid #e1e5e9;
+}
+
+.btn-secondary:hover {
+    background: #e9ecef;
+}
+
+/* Preview Section */
+.preview-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+.photo-card {
+    width: 414px; /* 11cm at 96dpi (2x) */
+    height: 640px; /* 17cm at 96dpi (2x) */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    cursor: pointer;
+}
+
+.photo-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-front {
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    transform: rotateY(180deg);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.card-back.gradient1 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.card-back.gradient2 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card-back.gradient3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.card-back.gradient4 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.card-back.gradient5 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.card-image {
+    flex: 1;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-image .placeholder-text {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+.card-info {
+    padding: 40px;
+    background: white;
+}
+
+.card-title-display {
+    font-size: 2.6rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #333;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.card-date-display {
+    color: #666;
+    font-size: 1.8rem;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.message-section,
+.timeline-section {
+    margin-bottom: 40px;
+}
+
+.message-section h4,
+.timeline-section h4 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    opacity: 0.9;
+}
+
+.card-message-display,
+.card-timeline-display {
+    font-size: 1.7rem;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+.card-message-display {
+    font-style: italic;
+    margin-bottom: 30px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.card-timeline-display {
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.timeline-item {
+    margin-bottom: 12px;
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.card-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-controls button {
+    min-width: 110px;
+    flex: 1;
+}
+
+/* Color Options */
+.color-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-options input[type="radio"] {
+    display: none;
+}
+
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-options input[type="radio"]:checked + .color-option {
+    border-color: #667eea;
+    transform: scale(1.1);
+}
+
+.gradient1 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient2 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gradient4 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.gradient5 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .photo-card {
+        width: 310px; /* Scaled down for mobile but still larger than before */
+        height: 480px;
+    }
+    
+    .card-title-display {
+        font-size: 2rem;
+    }
+    
+    .card-date-display {
+        font-size: 1.4rem;
+    }
+    
+    .message-section h4,
+    .timeline-section h4 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .card-message-display,
+    .card-timeline-display {
+        font-size: 1.3rem;
+    }
+    
+    .card-timeline-display {
+        font-size: 1.1rem;
+    }
+    
+    .card-info {
+        padding: 30px;
+    }
+    
+    .card-back {
+        padding: 30px;
+    }
+    
+    .card-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .card-controls button {
+        width: 100%;
+    }
+    
+    .color-options {
+        justify-content: center;
+    }
+}
+
+/* Title size radio buttons */
+.title-size-options {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 6px;
+}
+
+.title-size-options input[type="radio"] {
+    margin-right: 1px;
+}
+
+.title-size-options label {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    align-items: left;
+}
+
+/* File input styling */
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+/* Animation for card generation */
+.photo-card.generating {
+    animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
