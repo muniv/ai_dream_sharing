@@ -229,4 +229,76 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    // Download functionality
+    const downloadBtn = document.getElementById('download-btn');
+    
+    downloadBtn.addEventListener('click', function() {
+        const card = document.getElementById('photo-card');
+        const isFlipped = card.classList.contains('flipped');
+        const viewType = isFlipped ? '뒷면' : '앞면';
+        
+        // Show loading notification
+        showNotification('포토카드를 생성중입니다...', 'info');
+        
+        // Get the specific card face to capture
+        let targetElement;
+        if (isFlipped) {
+            targetElement = card.querySelector('.card-back');
+        } else {
+            targetElement = card.querySelector('.card-front');
+        }
+        
+        // Temporarily reset transforms for clean capture
+        const originalTransform = card.style.transform;
+        const originalCardTransform = targetElement.style.transform;
+        
+        card.style.transform = 'none';
+        targetElement.style.transform = 'none';
+        targetElement.style.backfaceVisibility = 'visible';
+        
+        // Configure html2canvas options
+        const options = {
+            backgroundColor: isFlipped ? null : '#ffffff',
+            scale: 2, // Higher resolution
+            useCORS: true,
+            allowTaint: true,
+            logging: false,
+            width: 414,
+            height: 640
+        };
+        
+        // Small delay to ensure styles are applied
+        setTimeout(() => {
+            html2canvas(targetElement, options).then(function(canvas) {
+                // Restore original transforms
+                card.style.transform = originalTransform;
+                targetElement.style.transform = originalCardTransform;
+                targetElement.style.backfaceVisibility = 'hidden';
+                
+                // Create download link
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `AI_Dream_포토카드_${viewType}_${new Date().toISOString().slice(0, 10)}.jpg`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    // Show success notification
+                    showNotification(`${viewType} 포토카드가 다운로드되었습니다!`, 'success');
+                }, 'image/jpeg', 0.95);
+            }).catch(function(error) {
+                // Restore original transforms on error
+                card.style.transform = originalTransform;
+                targetElement.style.transform = originalCardTransform;
+                targetElement.style.backfaceVisibility = 'hidden';
+                
+                console.error('다운로드 실패:', error);
+                showNotification('다운로드에 실패했습니다. 다시 시도해주세요.', 'error');
+            });
+        }, 100);
+    });
 });

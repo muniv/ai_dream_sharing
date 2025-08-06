@@ -440,3 +440,49 @@ input[type="file"] {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
+/* Download button styling */
+.btn-download {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    min-width: 110px;
+}
+
+.btn-download:hover {
+    background: linear-gradient(135deg, #45a049, #4CAF50);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.btn-download:active {
+    transform: translateY(0);
+}
+
+/* Update card-controls for two buttons */
+.card-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .card-controls {
+        flex-direction: row;
+        width: 100%;
+        gap: 10px;
+    }
+    
+    .card-controls button {
+        flex: 1;
+        min-width: 140px;
+    }
+}
